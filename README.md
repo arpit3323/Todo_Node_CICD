@@ -21,7 +21,7 @@ Steps To launch the EC2 instance:
 1. Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/.
 2. Choose Launch Instance.
 
-![EC2 Lanch][def D:\Todo_Node_CICD\Todo_Node_CICD\Images\image.png]
+![EC2 Lanch](Images/image.png)
 
 
 3. Once the Launch an instance window opens, provide the name of your EC2 Instance:
