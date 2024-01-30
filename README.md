@@ -1,4 +1,4 @@
-                                **Complete Step-by-Step Jenkins CICD with GitHub Integration**
+                                Complete Step-by-Step Jenkins CICD with GitHub Integration
 
 **Overview:**
 
@@ -65,9 +65,21 @@ Steps To launch the EC2 instance:
 
 Jenkins installation is straightforward:
 
-First Update your Server with the command
+1. First Update your Server with the command
 
-                                         ** $  sudo apt-get update**
+                                            $  sudo apt-get update 
+
+
+2. Install Java
+
+                                            $ sudo apt install openjdk-11-jre
+
+3. Verify Java Installation:
+
+                                            $ java -version
+
+![Alt text](image-10.png)
+
 
 
 
