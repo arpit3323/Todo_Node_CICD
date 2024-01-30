@@ -301,6 +301,99 @@ We have successfully built the Image from the Dockerfile:
 ![Alt text](Images/image-37.png)
 
 
+We can verify the successful creation of the container with the below command:
+
+                                     $ docker ps
+
+![Alt text](Images/image-38.png)
+
+
+**Step 6: Using Jenkins to Automate the whole process**
+
+In Jenkins, we will use all the commands we ran earlier to build the docker Image and then build the container from that image.
+For that go under the Build Steps section of Jenkins configure settings of our job and add the following commands in the execute shell area:
+
+                                    docker build . -t todo-node-app
+                                    docker run -d --name node-todo-app -p 8000:8000 todo-node-app
+
+Once you add the commands click on the Save button as shown in the below screenshot:
+
+![Alt text](Images/image-39.png)
+
+
+Now Click on Build Now to build the job using Jenkins.
+
+After you click on Build Now you may encounter an error in your build as shown in the below screenshot:
+
+
+![Alt text](Images/image-40.png)
+
+
+To solve this run the below commands in the EC2 Server which adds the Jenkins user to the docker group and restarts the Jenkins server.
+
+                                       $ sudo usermod -aG docker jenkins
+                                       $ sudo systemctl restart jenkins
+
+
+After the Jenkins Server restarts, again run the Build Now and check the Output:
+
+
+![Alt text](Images/image-41.png)
+
+This time around our build is successful and we can see our app accessible from the browser.
+
+Now to fully automate this CI CD pipeline without us clicking on Build Now every time the developer makes any changes in the code we will configure a web-hook that will allow our Jenkins job to be automatically triggered whenever it detects any change in the code and thus perform the necessary steps to keep the app up and running with the latest updates.
+
+
+**Step 7: Configure Web-hook:**
+
+To configure the web hook we first need to kill the docker container running on our EC2 Instance by issuing the docker kill **“container-id”** command.
+
+After that, we will install the GitHub Integration plugin in our Jenkins Server
+
+Jenkins -> Manage Jenkins -> Manage Plugins -> Install github integration plugin
+
+
+![Alt text](Images/image-42.png)
+
+
+After adding the plugin we need to add the webhook in our GitHub repo as shown in the screenshot:
+
+![Alt text](Images/image-43.png)
+
+
+A new window will appear where first add the Payload URL which will be the URL through which you access your Jenkins Server with the addition of github-webhook keyword.
+The content type should be application/json, the rest should be kept at default and then click on Add webhook.
+
+
+![Alt text](Images/image-44.png)
+
+The green tick before the Payload URL indicates that the webhook has been successfully configured with Jenkins as shown below:
+
+
+![Alt text](Images/image-45.png)
+
+
+Now we need to go to the Configure Settings of our Jenkins first Job and select GitHub hook trigger for GITScm polling under Build Triggers and click on Save.
+
+
+![Alt text](Images/image-46.png)
+
+
+Now we will update something in our GitHub repo and our job should get triggered automatically in Jenkins.
+
+The moment I changed something in the code the build got triggered in our Jenkins Job.
+
+If we check the status of our job it shows that the build got started by GitHub push as shown in the below screenshot:
+
+
+![Alt text](Images/image-47.png)
+
+
+And you can also check by typing the URL in the browser to see the changes as follows:
+
+
+![Alt text](Images/image-48.png)
 
 
 
@@ -312,4 +405,8 @@ We have successfully built the Image from the Dockerfile:
 
 
 
-[def]: image.png
+
+
+
+
+
