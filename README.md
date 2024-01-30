@@ -13,7 +13,8 @@ AWS account.
 Jenkins and Docker are to be installed on the AWS EC2 Instance
 GitHub repo (code)
 
-**Step 1:** Setup AWS EC2 Instance
+**Step 1: Setup AWS EC2 Instance**
+
 We will first create an AWS Instance (Ubuntu) free-tier eligible using the AWS console.
 
 Steps To launch the EC2 instance:
@@ -40,8 +41,7 @@ Steps To launch the EC2 instance:
 
 ![Alt text](image-4.png)
 
-7. Edit Network Settings, create a new Security Group, and select the default VPC with Auto-assign public IP in enable mode. Name your security group and allow ssh traffic, HTTPS, and HTTP everywhere (we can change the rules later).
-
+7. Edit Network Settings, create a new Security Group, and select the default VPC with Auto-assign public IP in enable   mode. Name your security group and allow ssh traffic, HTTPS, and HTTP everywhere (we can change the rules later).
 ![Alt text](image-5.png)
 
 8. Leave the rest of the options as default and click on the Launch instance button:
@@ -55,5 +55,19 @@ Steps To launch the EC2 instance:
 10. Now connect to instance wizard will open, go to EC2 Instance connect tab and click on it :
 
 ![Alt text](image-8.png)
+
+11. New Window tab will open with EC2 Intance terminal 
+
+![Alt text](image-9.png)
+
+
+**Step 2: Install Jenkins on EC2 Instance:**
+
+Jenkins installation is straightforward:
+
+First Update your Server with the command
+
+$  sudo apt-get update
+
 
 
