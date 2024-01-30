@@ -26,39 +26,39 @@ Steps To launch the EC2 instance:
 
 3. Once the Launch an instance window opens, provide the name of your EC2 Instance:
 
-![Alt text](image-1.png)
+![Alt text](Images/image-1.png)
 
 
 4. Choose the Ubuntu Image (AMI):
 
-![Alt text](image-2.png)
+![Alt text](Images/image-2.png)
 
 5. Choose an Instance Type. Select t2.micro for our use case which is also free-tier eligible.
 
-![Alt text](image-3.png)
+![Alt text](Images/image-3.png)
 
 6. Select an already existing key pair or create a new key pair. In my case, I will select an existing key pair.
 
-![Alt text](image-4.png)
+![Alt text](Images/image-4.png)
 
 7. Edit Network Settings, create a new Security Group, and select the default VPC with Auto-assign public IP in enable   mode. Name your security group and allow ssh traffic, HTTPS, and HTTP everywhere (we can change the rules later).
-![Alt text](image-5.png)
+![Alt text](Images/image-5.png)
 
 8. Leave the rest of the options as default and click on the Launch instance button:
 
-![Alt text](image-6.png)
+![Alt text](Images/image-6.png)
 
 9. On the screen you can see a success message after the successful creation of the EC2 instance, click on Connect to instance button:
 
-![Alt text](image-7.png)
+![Alt text](Images/image-7.png)
 
 10. Now connect to instance wizard will open, go to EC2 Instance connect tab and click on it :
 
-![Alt text](image-8.png)
+![Alt text](Images/image-8.png)
 
 11. New Window tab will open with EC2 Intance terminal 
 
-![Alt text](image-9.png)
+![Alt text](Images/image-9.png)
 
 
 **Step 2: Install Jenkins on EC2 Instance:**
