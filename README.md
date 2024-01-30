@@ -67,7 +67,7 @@ Jenkins installation is straightforward:
 
 First Update your Server with the command
 
-$  sudo apt-get update
+                                         ** $  sudo apt-get update**
 
 
 
