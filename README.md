@@ -78,7 +78,9 @@ Jenkins installation is straightforward:
 
                                             $ java -version
 
-![Alt text](image-10.png)
+![Alt text](Image/image-10.png)
+
+
 
 
 
